@@ -115,15 +115,15 @@ The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% 
     \centering
     \begin{tikzpicture}
         % Define pyramid coordinates
-        \coordinate (A) at (-4,0);
-        \coordinate (B) at (4,0);
-        \coordinate (C) at (0,6);
+        \coordinate (A) at (-8,0);
+        \coordinate (B) at (8,0);
+        \coordinate (C) at (0,12);
 
         % Define tier boundaries
-        \coordinate (L1) at (-2.66, 2);
-        \coordinate (R1) at (2.66, 2);
-        \coordinate (L2) at (-1.33, 4);
-        \coordinate (R2) at (1.33, 4);
+        \coordinate (L1) at (-5.33, 4);
+        \coordinate (R1) at (5.33, 4);
+        \coordinate (L2) at (-2.66, 8);
+        \coordinate (R2) at (2.66, 8);
 
         % Draw tiers with shading
         \filldraw[fill=gray!10, draw=black, thick] (A) -- (B) -- (R1) -- (L1) -- cycle;
@@ -132,7 +132,7 @@ The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% 
 
         % Labels on the right
         % Top Tier
-        \draw[thick] (1, 5) -- (5, 5) node[right, align=left, text width=6cm] {
+        \node[align=center, text width=4cm] at (0, 9.5) {
             \textbf{Top Tier} \\
             (High Value $>$ \rupee 5,000) \\
             \small Physical Credit Cards \\
@@ -140,7 +140,7 @@ The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% 
         };
 
         % Middle Tier
-        \draw[thick] (2, 3) -- (5, 3) node[right, align=left, text width=6cm] {
+        \node[align=center, text width=7cm] at (0, 6) {
             \textbf{Middle Tier} \\
             (Mid Value \rupee 2,000--\rupee 5,000) \\
             \small RuPay Credit on UPI \\
@@ -148,7 +148,7 @@ The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% 
         };
 
         % Base Tier
-        \draw[thick] (3, 1) -- (5, 1) node[right, align=left, text width=6cm] {
+        \node[align=center, text width=8cm] at (0, 2) {
             \textbf{Base Tier} \\
             (Low Value $<$ \rupee 2,000) \\
             \small UPI Debit / Cash \\
@@ -159,3 +159,4 @@ The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% 
     \caption{Proposed Theoretical Segmentation of Payment Instruments}
     \label{fig:pyramid}
 \end{figure}
+
