@@ -71,7 +71,7 @@ The most direct corollary to India's UPI phenomenon is Brazil's \textbf{Pix} sys
 In a seminal working paper titled \textit{``Instant Payments and the Demise of Cash,''} Duarte analyzed transaction data from 2020 to 2022. The study found a strong substitution effect between Pix and cash, but more interestingly, it observed a ``soft substitution'' for debit cards.
 
 \begin{itemize}
-    \item \textbf{Key Finding:} For transactions under BRL 50 (approx. ₹800), Pix usage surged while debit card swipes stagnated.
+    \item \textbf{Key Finding:} For transactions under BRL 50 (approx. \rupee 800), Pix usage surged while debit card swipes stagnated.
     \item \textbf{Relevance to India:} This mirrors the Indian micro-transaction economy. However, the study noted that \textit{credit card} usage remained resilient for high-value installments (BNPL), suggesting that ``Pay Later'' (Credit) defends its territory better than ``Pay Now'' (Debit).
 \end{itemize}
 
@@ -109,22 +109,55 @@ Writing in the \textit{Economic and Political Weekly}, Bhattacharya analyzed the
 
 \subsubsection{PwC India (2024): The Indian Payments Handbook}
 
-The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% of the total credit card transaction value, primarily cannibalizing the mid-ticket segment (₹2,000--₹10,000).
+The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% of the total credit card transaction value, primarily cannibalizing the mid-ticket segment (\rupee 2,000--\rupee 10,000).
 
 \begin{figure}[htbp]
     \centering
-    \framebox{\parbox{0.85\textwidth}{\centering
-        \vspace{0.8cm}
-        \textbf{Visualizing the Payment Hierarchy} \\
-        \vspace{0.5cm}
-        [Pyramid Diagram] \\
-        \vspace{0.5cm}
-        \textbf{Top Tier (High Value $>$ ₹5,000):} Physical Credit Cards (Travel, Luxury, Electronics) \\
-        \textbf{Middle Tier (Mid Value ₹2,000--₹5,000):} RuPay Credit on UPI (Shopping, Dining) \\
-        \textbf{Base Tier (Low Value $<$ ₹2,000):} UPI Debit / Cash (Groceries, Transit, Tea) \\
-        \vspace{0.8cm}
-        \textit{Figure 2.1: The Segmentation of Payment Instruments by Ticket Size}
-    }}
+    \begin{tikzpicture}
+        % Define pyramid coordinates
+        \coordinate (A) at (-5,0);
+        \coordinate (B) at (5,0);
+        \coordinate (C) at (0,7);
+
+        % Draw the large triangle
+        \draw[thick] (A) -- (B) -- (C) -- cycle;
+
+        % Divide into tiers
+        \coordinate (L1) at (-3.33, 2.33); % Approx 1/3 up
+        \coordinate (R1) at (3.33, 2.33);
+        \coordinate (L2) at (-1.66, 4.66); % Approx 2/3 up
+        \coordinate (R2) at (1.66, 4.66);
+
+        % Draw horizontal lines
+        \draw[thick] (L1) -- (R1);
+        \draw[thick] (L2) -- (R2);
+
+        % Add text
+        % Top Tier
+        \node[align=center, text width=5cm] at (0, 5.5) {
+            \textbf{Top Tier} \\
+            (High Value $>$ \rupee 5,000) \\
+            \small Physical Credit Cards \\
+            \scriptsize (Travel, Luxury, Electronics)
+        };
+
+        % Middle Tier
+        \node[align=center, text width=7cm] at (0, 3.5) {
+            \textbf{Middle Tier} \\
+            (Mid Value \rupee 2,000--\rupee 5,000) \\
+            \small RuPay Credit on UPI \\
+            \scriptsize (Shopping, Dining)
+        };
+
+        % Base Tier
+        \node[align=center, text width=8cm] at (0, 1) {
+            \textbf{Base Tier} \\
+            (Low Value $<$ \rupee 2,000) \\
+            \small UPI Debit / Cash \\
+            \scriptsize (Groceries, Transit, Tea)
+        };
+
+    \end{tikzpicture}
     \caption{Proposed Theoretical Segmentation of Payment Instruments}
     \label{fig:pyramid}
 \end{figure}
