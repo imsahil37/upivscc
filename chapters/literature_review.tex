@@ -115,26 +115,24 @@ The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% 
     \centering
     \begin{tikzpicture}
         % Define pyramid coordinates
-        \coordinate (A) at (-5,0);
-        \coordinate (B) at (5,0);
-        \coordinate (C) at (0,7);
+        \coordinate (A) at (-4,0);
+        \coordinate (B) at (4,0);
+        \coordinate (C) at (0,6);
 
-        % Draw the large triangle
-        \draw[thick] (A) -- (B) -- (C) -- cycle;
+        % Define tier boundaries
+        \coordinate (L1) at (-2.66, 2);
+        \coordinate (R1) at (2.66, 2);
+        \coordinate (L2) at (-1.33, 4);
+        \coordinate (R2) at (1.33, 4);
 
-        % Divide into tiers
-        \coordinate (L1) at (-3.33, 2.33); % Approx 1/3 up
-        \coordinate (R1) at (3.33, 2.33);
-        \coordinate (L2) at (-1.66, 4.66); % Approx 2/3 up
-        \coordinate (R2) at (1.66, 4.66);
+        % Draw tiers with shading
+        \filldraw[fill=gray!10, draw=black, thick] (A) -- (B) -- (R1) -- (L1) -- cycle;
+        \filldraw[fill=gray!30, draw=black, thick] (L1) -- (R1) -- (R2) -- (L2) -- cycle;
+        \filldraw[fill=gray!50, draw=black, thick] (L2) -- (R2) -- (C) -- cycle;
 
-        % Draw horizontal lines
-        \draw[thick] (L1) -- (R1);
-        \draw[thick] (L2) -- (R2);
-
-        % Add text
+        % Labels on the right
         % Top Tier
-        \node[align=center, text width=5cm] at (0, 5.5) {
+        \draw[thick] (1, 5) -- (5, 5) node[right, align=left, text width=6cm] {
             \textbf{Top Tier} \\
             (High Value $>$ \rupee 5,000) \\
             \small Physical Credit Cards \\
@@ -142,7 +140,7 @@ The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% 
         };
 
         % Middle Tier
-        \node[align=center, text width=7cm] at (0, 3.5) {
+        \draw[thick] (2, 3) -- (5, 3) node[right, align=left, text width=6cm] {
             \textbf{Middle Tier} \\
             (Mid Value \rupee 2,000--\rupee 5,000) \\
             \small RuPay Credit on UPI \\
@@ -150,7 +148,7 @@ The PwC report projected that by 2029, ``Credit on UPI'' could capture 15--20\% 
         };
 
         % Base Tier
-        \node[align=center, text width=8cm] at (0, 1) {
+        \draw[thick] (3, 1) -- (5, 1) node[right, align=left, text width=6cm] {
             \textbf{Base Tier} \\
             (Low Value $<$ \rupee 2,000) \\
             \small UPI Debit / Cash \\
