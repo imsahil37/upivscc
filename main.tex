@@ -11,8 +11,8 @@
 
 % --- Typography ---
 \usepackage[english]{babel}
-% Use Palatino (mathpazo) for a professional academic look.
-\usepackage{mathpazo}
+% Use Times New Roman for a professional academic look.
+\usepackage{mathptmx}
 \usepackage[T1]{fontenc}
 \usepackage{microtype} % Improves typography (kerning, spacing)
 
@@ -21,6 +21,9 @@
 \usepackage{wrapfig}
 \usepackage{float}
 \usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\pgfplotsset{compat=1.18}
 
 % --- Math and symbols ---
 \usepackage{amsmath}
@@ -46,21 +49,23 @@
 
 % --- Titles and Headings ---
 \usepackage{titlesec}
+% Chapter headings: 16pt bold centered
 \titleformat{\chapter}[display]
-  {\normalfont\bfseries\centering}
-  {\LARGE\chaptertitlename\ \thechapter}
+  {\fontsize{16pt}{19.2pt}\bfseries\centering}
+  {\fontsize{16pt}{19.2pt}\chaptertitlename\ \thechapter}
   {10pt}
-  {\huge}
+  {\fontsize{16pt}{19.2pt}\bfseries}
 \titlespacing*{\chapter}{0pt}{-20pt}{40pt}
 
+% Section headings: 14pt bold left aligned
 \titleformat{\section}
-  {\normalfont\Large\bfseries}
+  {\fontsize{14pt}{16.8pt}\bfseries\raggedright}
   {\thesection}
   {1em}
   {}
 
 \titleformat{\subsection}
-  {\normalfont\large\bfseries}
+  {\fontsize{14pt}{16.8pt}\bfseries\raggedright}
   {\thesubsection}
   {1em}
   {}
@@ -97,30 +102,27 @@
 % --- Front Matter (Roman Numbering) ---
 \pagenumbering{roman}
 
-\include{frontmatter/titlepage}
+\input{frontmatter/titlepage}
 
-\include{frontmatter/declaration}
-\include{frontmatter/certificate}
-\include{frontmatter/acknowledgement}
+\input{frontmatter/cert_declaration}
+\input{frontmatter/plagiarism_report}
+\input{frontmatter/acknowledgement}
+\input{frontmatter/abstract}
 
 \tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
 \newpage
 
 % --- Main Content (Arabic Numbering) ---
 \pagenumbering{arabic}
 
-\include{frontmatter/formal_title}
-\include{frontmatter/abstract}
-\include{frontmatter/keywords}
-
-\include{chapters/introduction}      % Chapter 1
-\include{chapters/literature_review} % Chapter 2
-\include{chapters/research_gap}      % Chapter 3
-\include{chapters/problem_statement} % Chapter 4
-\include{chapters/rationale}         % Chapter 5
-\include{chapters/methodology}       % Chapter 6
-\include{chapters/outcomes}          % Chapter 7
-\include{chapters/scope_limitations} % Chapter 8
-\include{chapters/references}        % References
+\input{chapters/chapter1} % Research Topic
+\input{chapters/chapter2} % Research Analysis
+\input{chapters/chapter3} % Summary
+\input{chapters/chapter4} % Conclusion
+\input{chapters/references} % References
 
 \end{document}
